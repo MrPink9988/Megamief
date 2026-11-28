@@ -5,7 +5,7 @@
 <dialog id="control"><h2>Spielleitung</h2><p>Codes anpassen, Mission wechseln oder neu starten.</p><div id="settings"></div><button id="savecodes">Codes speichern</button><hr><div id="jumps"></div><button id="reset">↻ Spiel komplett neu starten</button><button class="secondary" id="close">Schließen</button></dialog>
 <script>
 const videos=['Mega-Mief-1-Intro.mp4','Mega-Mief-2.mp4','Mega-mief-3.mp4','Mega-mief-4.mp4','Mega-mief-5.mp4','Mega-mief-6.mp4'];
-const defaults=['0000','0000','0000','0000','0000'],key='megamief-v2',ck='megamief-codes-test-v3',duration=45*60*1000;
+const defaults=['7294','8237','3782','6194','5826'],key='megamief-v2',ck='megamief-codes-final-v1',duration=45*60*1000;
 const $=id=>document.getElementById(id);let codes=defaults.slice(),s={n:0,phase:'video',start:null};let transition=0;
 try{const c=JSON.parse(localStorage.getItem(ck));if(Array.isArray(c)&&c.length===5&&c.every(x=>typeof x==='string'&&/^\d{1,12}$/.test(x)))codes=c;const x=JSON.parse(localStorage.getItem(key));if(x&&Number.isInteger(x.n)&&x.n>=0&&x.n<=5&&['video','task','end'].includes(x.phase)&&!(x.n===5&&x.phase==='task'))s=x}catch(e){}
 function store(){try{localStorage.setItem(key,JSON.stringify(s))}catch(e){}}
